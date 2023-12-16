@@ -3,10 +3,10 @@ name: Build Image
 on: [push, pull_request_target, workflow_dispatch]
 
 env:
-  GITHUB_REPO: "linuxserver/docker-mods" #don't modify
-  ENDPOINT: "linuxserver/mods" #don't modify
+  GITHUB_REPO: "ericflix/docker-mods" #don't modify
+  ENDPOINT: "ericflix/mods" #don't modify
   BASEIMAGE: "plex" #replace
-  MODNAME: "absolute-hama" #replace
+  MODNAME: "absolute-anime" #replace
 
 jobs:
   set-vars:

@@ -41,3 +41,23 @@ else
     s6-setuidgid abc git -C "$plugindir/Hama.bundle" pull
 fi
 lsiown -R abc:abc "$plugindir/Hama.bundle"
+
+# clone or update MyAnimeList.bundle repo
+if [ ! -d "$plugindir/MyAnimeList.bundle" ]; then
+    echo "**** no MyAnimeList agent found, cloning ****"
+    s6-setuidgid abc git clone --depth 1 https://github.com/Fribb/MyAnimeList.bundle "$plugindir/MyAnimeList.bundle"
+else
+    echo "**** pulling latest MyAnimeList update ****"
+    s6-setuidgid abc git -C "$plugindir/MyAnimeList.bundle" pull
+fi
+lsiown -R abc:abc "$plugindir/MyAnimeList.bundle"
+
+# clone or update AniList.bundle repo
+if [ ! -d "$plugindir/AniList.bundle" ]; then
+    echo "**** no AniList agent found, cloning ****"
+    s6-setuidgid abc git clone --depth 1 https://github.com/scrobble-moe/AniList.bundle "$plugindir/AniList.bundle"
+else
+    echo "**** pulling latest AniList update ****"
+    s6-setuidgid abc git -C "$plugindir/AniList.bundle" pull
+fi
+lsiown -R abc:abc "$plugindir/AniList.bundle"
